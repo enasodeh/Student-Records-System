@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     messageLabel = new QLabel;
 
     /*
-       Input masks:
+       Input:
        Student number must be 4 digits.
        Module code format:
        3 uppercase letters + 1/2/3 + 2 digits + 1 final alphanumeric character.
@@ -34,17 +34,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     studentNumberEdit->setInputMask("0000");
 
-    /*
-       > means convert letters to uppercase.
-       AAA means 3 alphabetic characters.
-       900 means 3 digit positions.
-       N means final alphanumeric character.
-    */
     moduleCodeEdit->setInputMask(">AAA900N");
 
     /*
        The mark must be between 0 and 100.
-       We use QIntValidator here and also check again manually.
     */
     markEdit->setValidator(new QIntValidator(0, 100, this));
 
